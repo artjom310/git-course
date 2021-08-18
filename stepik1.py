@@ -1,8 +1,10 @@
 import re
-lst = []
-pregex = ''.join(f'.*?{i}' for i in 'anton')
-for i in range(int(input())):
-    if re.search(pregex, input()):
-        lst.append(i)
-for i in range(1, len(lst) + 1):
-    print(i)
+
+lst = {x: input() for x in range(1, int(input()) + 1)}
+print(lst)
+regex = ''.join(f'.*?{i}' for i in 'anton')
+a = []
+for k, v in lst.items():
+    if re.search(regex, v):
+        a.append(k)
+print(*a)
