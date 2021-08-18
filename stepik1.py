@@ -1,6 +1,3 @@
-import timeit
-
-
 import re
 lst = []
 pregex = ''.join(f'.*?{i}' for i in 'anton')
