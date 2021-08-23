@@ -1,18 +1,11 @@
-n = int(input())
-a = [[1]]
-trow = [1]
-y = [0]
-for _ in range(n):
-    trow=[left+right for left,right in zip(trow+y, y+trow)]
-    a.append(trow)
-print(a[n])
+from itertools import groupby
+lst = []
+s = 'w w w o r l d g g g g r e a t t e c c h e m g g p w w'
+s = s.split()
+s = groupby(s)
+for i , j in s:
+    lst.append(list(j))
+print(lst)
 
-
-'''0:      1
-1:     1 1
-2:    1 2 1
-3:   1 3 3 1
-4:  1 4 6 4 1
-[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
-      .....'''
-      
+'''На вход программе подается строка текста, содержащая символы. Напишите программу, 
+которая упаковывает последовательности одинаковых символов заданной строки в подсписки.'''
