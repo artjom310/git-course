@@ -1,7 +1,18 @@
 n = int(input())
-a = []
-for i in range(1, n + 1):
-    i = [int(j)for j in range(1, i + 1)]
-    a.append(i)
-for i in a:
-    print(i)
+a = [[1]]
+trow = [1]
+y = [0]
+for _ in range(n):
+    trow=[left+right for left,right in zip(trow+y, y+trow)]
+    a.append(trow)
+print(a[n])
+
+
+'''0:      1
+1:     1 1
+2:    1 2 1
+3:   1 3 3 1
+4:  1 4 6 4 1
+[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
+      .....'''
+      
