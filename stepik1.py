@@ -1,7 +1,12 @@
+#  Реализуйте функцию chunked(), которая принимает на вход список и число,
+# задающее размер чанка (куска),
+# а возвращает список из чанков указанной длины.
+lst = list(input().split())
 n = int(input())
-a = []
-for i in range(1, n + 1):
-    i = [int(j)for j in range(1, i + 1)]
-    a.append(i)
-for i in a:
-    print(i)
+
+
+def chunked(lst, n):
+    return [lst[x:n + x] for x in range(0, len(lst), n)]
+
+
+print(chunked(lst, n))
