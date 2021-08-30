@@ -2,11 +2,11 @@
 # задающее размер чанка (куска),
 # а возвращает список из чанков указанной длины.
 lst = list(input().split())
-n = int(input())
+n = 1
+s = []
 
-
-def chunked(lst, n):
-    return [lst[x:n + x] for x in range(0, len(lst), n)]
-
-
-print(chunked(lst, n))
+for i in range(0, len(lst)):
+    s += [lst[x:n + x] for x in range(0, len(lst), n)]
+    n += 1
+s.append([])
+print(sorted(s, key=len))
