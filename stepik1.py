@@ -1,12 +1,6 @@
-#  Реализуйте функцию chunked(), которая принимает на вход список и число,
-# задающее размер чанка (куска),
-# а возвращает список из чанков указанной длины.
-lst = list(input().split())
-n = int(input())
+import sweetviz as sv
+import pandas as pd
 
-
-def chunked(lst, n):
-    return [lst[x:n + x] for x in range(0, len(lst), n)]
-
-
-print(chunked(lst, n))
+df = pd.read_csv(r'C:\Users\User\Desktop\Back_end_dev\git_course\202107_процент по линиям.csv')
+my_report = sv.analyze([df, 'Процент по линиям'])
+my_report.show_html()
