@@ -1,13 +1,15 @@
-m = int(input())  # строки в матрице
-n = int(input())  # столбы в матрице \ другим словом подсписок
-s = [[0] * n for i in range(m)]  # заполнение матрицы 0
-for i in range(m):
-    for j in range(n):
-        s[i][j] = input()  # замена элемнтов матрицы
-for row in s:
-    print(' '.join(list(map(str, row))))  # перебор матрицы и вывод
-print()
-for c in range(n):
-    for r in range(m):
-        print(s[r][c], end=' ')
-    print()
+'''Подсчет количества элементов
+ в подсписках > среднего арф строки'''
+
+n = int(input())
+a = []
+
+for i in range(n):
+    a.append(list(map(int, input().split())))
+for i in range(len(a)):
+    arf = sum(a[i]) / len(a[i])
+    k = 0
+    for j in range(len(a)):
+        if a[i][j] > arf:
+            k += 1
+    print(k)

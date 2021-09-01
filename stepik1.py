@@ -1,6 +1,15 @@
-import sweetviz as sv
-import pandas as pd
+a = [[1, 2, 3, 4],
+     [5, 6, 3, 15],
+     [0, 2, 3, 1],
+     [5, 2, 8, 5]]
+for i in range(len(a)):
+    arf = sum(a[i]) / len(a[i])
+    k = 0
+    for j in range(len(a)):
+        if a[i][j] > arf:
+            k += 1
+    print(k)
 
-df = pd.read_csv(r'C:\Users\User\Desktop\Back_end_dev\git_course\202107_процент по линиям.csv')
-my_report = sv.analyze([df, 'Процент по линиям'])
-my_report.show_html()
+'''Подсчет количества элементов
+ в подсписках > среднего арф строки'''
+ 
