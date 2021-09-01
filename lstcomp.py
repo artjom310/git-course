@@ -5,4 +5,9 @@ for i in range(m):
     for j in range(n):
         s[i][j] = input()  # замена элемнтов матрицы
 for row in s:
-    print(' '.join(list(map(str, row))))  # перебор матрицы и вывод построчно
+    print(' '.join(list(map(str, row))))  # перебор матрицы и вывод
+print()
+for c in range(n):
+    for r in range(m):
+        print(s[r][c], end=' ')
+    print()
