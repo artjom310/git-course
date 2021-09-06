@@ -1,11 +1,11 @@
-'''Поменять местами главную и побочную диаггонали'''
+'''Поварачивает квадратную матрицу по часовой на 90'''
 n = int(input())
 a = []
 res = []
 for i in range(n):
     a.append(list(map(int, input().split())))
-for i in range(len(a)):
-    a[i][i], a[n-i-1][i] = a[n-i-1][i], a[i][i]
-print()
-for i in a:
-    print(*i)
+
+for i in range(n):
+    for j in reversed(range(n)):
+        print(a[j][i], end=' ')
+    print()
