@@ -1,15 +1,18 @@
-#  Поменять местами столбы матрицы
-n = int(input())
-m = int(input())
-matrix = []
-for i in range(n):
-    temp = [int(num) for num in input().split()]
-    matrix.append(temp)
-i, j = list(map(int, input().split()))
+'''На вход программе подаются два натуральных числа nn и mm. Напишите программу, 
+которая создает матрицу размером n на mn×m и 
+заполняет её числами от 1 до n * m в соответствии с образцом.'''
 
-for c in range(len(matrix)):
-    matrix[c][i], matrix[c][j] = matrix[c][j], matrix[c][i]
-for i in range(len(matrix)):
-    for j in range(len(matrix[i])):
-        print(matrix[i][j], end=' ')
+
+n, m = list(map(int, input().split()))
+
+matrix = []
+g = m
+a = 1
+for i in range(n):
+    matrix.append(list(range(a, g + 1)))
+    a = g + 1
+    g += m
+for i in range(n):
+    for j in range(m):
+        print(str(matrix[i][j]).ljust(2), end=' ')
     print()
