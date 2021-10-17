@@ -5,4 +5,7 @@ def way_min(tuple_1, tuple_2):  # расчет расстояния между �
 
 
 print(way_min((0, 1), (1, 4)))
-print(way_min((1,4), (4,1)) + way_min((0, 1), (1, 4)))
+print(way_min((1, 4), (4, 1)) + way_min((0, 1), (1, 4)))
+
+for i in range(10):
+    print(i)
