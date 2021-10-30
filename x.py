@@ -1,20 +1,20 @@
-'''Sample Input 1:
+#  Doc_str там решение которое в принципе понял.
+'''for i in range(n):
+    for j in range(k):
+        for r in range(m):
+            C[i][j] += matrix[i][r] * matrix1[r][j]'''
 
-3 5
-Sample Output 1:
+import numpy as np
+n, m = map(int, input().split())
 
-1  2  4  7  10
-3  5  8  11 13
-6  9  12 14 15
-'''
-n, m = list(map(int, input().split()))
-matrix = [[0] * m for _ in range(n)]
-w = 1
-for i in range(n + m):
-    for j in range(min(i, m - 1), -1, -1):
-        k = i - j
-        if k < n:
-            matrix[k][j] = w
-            w += 1
-for i in range(n):
-    print(*matrix[i])
+matrix = [[int(i) for i in input().split()] for _ in range(n)]
+input()
+
+m, k = list(map(int, input().split()))
+matrix1 = [[int(i) for i in input().split()] for _ in range(m)]
+a = np.matrix(matrix)
+b = np.matrix(matrix1)
+c = a * b
+
+for i in c.tolist():
+    print(*i)
