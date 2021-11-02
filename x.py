@@ -1,38 +1,37 @@
-#  Напишите программу, которая возводит квадратную матрицу в mm-ую степень.
+#  от i до вводимого числа цикл сделайте и append-ите по срезу[i::n]
+'''import math
 
-'''Sample Input 1:
-3
-1 2 1
-3 3 3
-1 2 1
-5
-Sample Output 1:
-1666 2222 1666
-3333 4443 3333
-1666 2222 1666
-'''
-from copy import deepcopy
+lst = list(input().split())
 n = int(input())
-matrix = [[int(i) for i in input().split()] for _ in range(n)]
-m = int(input())
 
 
-def sqrt_matrix(matrix, matrix1):  # ф-ия умножения матрицы саму на себя т.е 2 степень
-    c = [[0] * n for i in range(n)]
-    for i in range(n):
-        for j in range(n):
-            for r in range(n):
-                c[i][j] += matrix[i][r] * matrix1[r][j]
-    return c
+def func_chunks_num(lst, c_num):
+    n = math.ceil(len(lst) / c_num)
+
+    for x in range(0, len(lst), n):
+        e_c = lst[x:n + x:x+1]
+        if len(e_c) &lt; n:
+            e_c = e_c + [None for y in range(n - len(e_c))]
+        yield e_c
 
 
-def pow_matrix(a, n):  # ф-ия копирует матрицу и вохвращает умножение на себя в цикле до n-1
-    p = deepcopy(a)
-    for _ in range(n - 1):
-        p = sqrt_matrix(p, a)
-    return p
+print(list(func_chunks_num(lst, n)))
+'''
+#  Симметричная матрица относительн побочной диагонали
+n = int(input())
+matrix = [input().split() for _ in range(n)]
+c = []
+for stroka in matrix:
+    stroka.reverse()
+    c.append(stroka)
+result = 'YES'
 
-
-res = pow_matrix(matrix, m)
 for i in range(n):
-    print(*res[i])
+    for j in range(i + 1, n):
+        if c[i][j] != c[j][i]:
+            result = 'NO'
+            break
+    if result == 'NO':
+        break
+
+print(result)
