@@ -1,13 +1,25 @@
-import requests
-from bs4 import BeautifulSoup
-class YoutubeScraper:
-    def __init__(self, url):
-        self.url = url
-    def scrape_video_count(self):
-        content = requests.get(self.url)
-        soup = BeautifulSoup(content.text, "html.parser")
-        view_count = soup.find("div", {"class": "watch-view-count"}).text
-        return view_count
-url = "https://www.youtube.com/watch?v=5PxzExJQOh4&t=81s"
-x = YoutubeScraper(url)
-x.scrape_video_count()
+'''Sample Input 1:
+3
+1 2 1
+3 3 3
+1 2 1
+5
+Sample Output 1:
+1666 2222 1666
+3333 4443 3333
+1666 2222 1666
+
+[[9998, 13330, 9998], 
+[19995, 26661, 19995], 
+[9998, 13330, 9998]]
+
+'''
+import numpy as np
+
+matrix = [[1666, 2222, 1666], [3333, 4443, 3333], [1666, 2222, 1666]]
+matrix_1 = [[1, 2, 1],
+            [3, 3, 3],
+            [1, 2, 1]]
+A = np.matrix(matrix)
+B = np.matrix(matrix_1)
+print(A * B)
