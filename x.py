@@ -1,34 +1,28 @@
-#  от i до вводимого числа цикл сделайте и append-ите по срезу[i::n]
-'''import math
-
-lst = list(input().split())
-n = int(input())
-
-
-def func_chunks_num(lst, c_num):
-    n = math.ceil(len(lst) / c_num)
-
-    for x in range(0, len(lst), n):
-        e_c = lst[x:n + x:x+1]
-        if len(e_c) &lt; n:
-            e_c = e_c + [None for y in range(n - len(e_c))]
-        yield e_c
-
-
-print(list(func_chunks_num(lst, n)))
+'''Проверить чтобы все отсортированные строки матрицы были равны 
+list(range(1, n+1))
+Транспонировать матрицу
+Пункт первый
+Вывод YES если <пункт 1> and <пункт 3> иначе NO
+Sample Input 1:
+4
+2 3 4 1
+3 4 1 2
+4 1 2 3
+1 2 3 4
+Sample Output 1:
+YES
 '''
-#  Симметричная матрица относительн побочной диагонали
 n = int(input())
 matrix = [input().split() for _ in range(n)]
-c = []
-for stroka in matrix:
-    stroka.reverse()
-    c.append(stroka)
+c = [[0] * n for _ in range(n)]
+for i in range(n):
+    for j in range(n):
+        matrix[i][j] = c[j][i]
 result = 'YES'
 
 for i in range(n):
     for j in range(i + 1, n):
-        if c[i][j] != c[j][i]:
+        if c[i][j] not in matrix[i] and c[i][j] not in c[i]:
             result = 'NO'
             break
     if result == 'NO':
