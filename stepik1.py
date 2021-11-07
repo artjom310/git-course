@@ -15,16 +15,9 @@ def func_chunks_num(lst, c_num):
         yield e_c
 print(list(func_chunks_num(lst, n)))
 '''
-kx, ky = input()
-coor_j = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
-coor_i = {'1': 7, '2': 6, '3': 5, '4': 4, '5': 3, '6': 2, '7': 1, '8': 0}
-kx = coor_j[kx]
-ky = coor_i[ky]
-matrix = [['.' for _ in range(8)] for _ in range(8)]
-matrix[ky][kx] = 'Q'
-for i in range(8):
-    for j in range(8):
-        if(i != ky or j != kx) and ((i == ky or j == kx) or (abs(i - ky) == abs(j - kx))):
-            matrix[i][j] = '*'
-for i in range(8):
-    print(*matrix[i])
+
+n = int(input())
+f1, f2, f3 = 1, 1, 1
+for i in range(n):
+    print(f1, end=' ')
+    f1, f2, f3 = f2, f3, f1+f2+f3
