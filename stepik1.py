@@ -1,23 +1,13 @@
-#  от i до вводимого числа цикл сделайте и append-ите по срезу[i::n]
-'''import math
-
-lst = list(input().split())
+'''На летних каникулах Тимур и ученики онлайн-школы BEEGEEK решили отдохнуть.
+В результате nn учеников школы поехали отдыхать на море, mm учеников съездили в деревню, а kk учеников сходили в горы.
+Оказалось, что и в деревне, и на море были xx учеников, а в деревне и в горах —yy учеников. Побывать и в горах, и на море не удалось никому.
+Напишите программу для определения количества учеников в школе,
+если никто не смог посетить все три места сразу,
+а zz учеников писали ДВИ по математике для поступления в МГУ, и никуда не ездили.'''
 n = int(input())
-
-
-def func_chunks_num(lst, c_num):
-    n = math.ceil(len(lst) / c_num)
-
-    for x in range(0, len(lst), n):
-        e_c = lst[x:n + x:x+1]
-        if len(e_c) &lt; n:
-            e_c = e_c + [None for y in range(n - len(e_c))]
-        yield e_c
-print(list(func_chunks_num(lst, n)))
-'''
-
-n = int(input())
-f1, f2, f3 = 1, 1, 1
-for i in range(n):
-    print(f1, end=' ')
-    f1, f2, f3 = f2, f3, f1+f2+f3
+m = int(input())
+k = int(input())
+x = int(input())
+y = int(input())
+z = int(input())
+print((n - x) + (m - x - y) + (k - y) + z + x + y)
