@@ -1,29 +1,29 @@
-s = '''orange strawberry barley gooseberry apple apricot barley currant orange
-melon
-pomegranate banana banana orange barley apricot plum grapefruit banana
-quince
-strawberry barley grapefruit banana grapes melon strawberry apricot currant
-currant
-gooseberry raspberry apricot currant orange lime quince grapefruit barley
-banana melon
-pomegranate barley banana orange barley apricot plum banana quince lime
-grapefruit strawberry
-gooseberry apple barley apricot currant orange melon pomegranate banana
-banana orange apricot
-barley plum banana grapefruit banana quince currant orange melon pomegranate
-barley plum banana
-quince barley lime grapefruit pomegranate barley'''
-s = s.split()
+'''Дополните приведенный код так, чтобы в переменной result хранился словарь,
+в котором для каждого владельца будут перечислены его собаки.
+Ключом словаря должен быть кортеж (имя, фамилия, возраст владельца),
+а значением – список кличек собак (сохранив исходный порядок следования).'''
+
+pets = [('Hatiko', 'Parker', 'Wilson', 50),
+        ('Rusty', 'Josh', 'King', 25),
+        ('Fido', 'John', 'Smith', 28),
+        ('Butch', 'Jake', 'Smirnoff', 18),
+        ('Odi', 'Emma', 'Wright', 18),
+        ('Balto', 'Josh', 'King', 25),
+        ('Barry', 'Josh', 'King', 25),
+        ('Snape', 'Hannah', 'Taylor', 40),
+        ('Horry', 'Martha', 'Robinson', 73),
+        ('Giro', 'Alex', 'Martinez', 65),
+        ('Zooma', 'Simon', 'Nevel', 32),
+        ('Lassie', 'Josh', 'King', 25),
+        ('Chase', 'Martha', 'Robinson', 73),
+        ('Ace', 'Martha', 'Williams', 38),
+        ('Rocky', 'Simon', 'Nevel', 32)]
+
 result = {}
-for i in s:
-    result[i] = result.get(i, 0) + 1
-# print(max(result))
-# print(result)
-count = 0
-lst = []
-for k, v in result.items():
-    if v >= count:
-        lst.append((k, v))
-        count = v
-ans = sorted(lst)
-print(ans[0][0])
+
+for i in pets:
+    result[(i[1], i[2], i[3])] = result.get((i[1], i[2], i[3]), []) + [i[0]]
+
+result = {}
+for pet in pets:
+    result.setdefault(pet[1:], []).append(pet[0])
