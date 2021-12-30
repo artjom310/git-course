@@ -1,6 +1,29 @@
-digits = {'0': 'zero', '1': 'one', '2': 'two', '3': 'three', '4': 'four',
-          '5': 'five', '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine'
-          }
-a = list(input())
-for i in a:
-    print(digits[i], end=' ')
+s = '''orange strawberry barley gooseberry apple apricot barley currant orange
+melon
+pomegranate banana banana orange barley apricot plum grapefruit banana
+quince
+strawberry barley grapefruit banana grapes melon strawberry apricot currant
+currant
+gooseberry raspberry apricot currant orange lime quince grapefruit barley
+banana melon
+pomegranate barley banana orange barley apricot plum banana quince lime
+grapefruit strawberry
+gooseberry apple barley apricot currant orange melon pomegranate banana
+banana orange apricot
+barley plum banana grapefruit banana quince currant orange melon pomegranate
+barley plum banana
+quince barley lime grapefruit pomegranate barley'''
+s = s.split()
+result = {}
+for i in s:
+    result[i] = result.get(i, 0) + 1
+# print(max(result))
+# print(result)
+count = 0
+lst = []
+for k, v in result.items():
+    if v >= count:
+        lst.append((k, v))
+        count = v
+ans = sorted(lst)
+print(ans[0][0])
