@@ -1,29 +1,26 @@
-'''Дополните приведенный код так, чтобы в переменной result хранился словарь,
-в котором для каждого владельца будут перечислены его собаки.
-Ключом словаря должен быть кортеж (имя, фамилия, возраст владельца),
-а значением – список кличек собак (сохранив исходный порядок следования).'''
+'''{'Змея': ' язык программирования Python',
+'Баг': ' от англ. bug — жучок, клоп, ошибка в программе',
+'Конфа': ' конференция',
+'Костыль': ' код, который нужен, чтобы исправить несовершенство ранее написанного кода',
+'Бета': ' бета-версия, приложение на стадии публичного тестирования'}
 
-pets = [('Hatiko', 'Parker', 'Wilson', 50),
-        ('Rusty', 'Josh', 'King', 25),
-        ('Fido', 'John', 'Smith', 28),
-        ('Butch', 'Jake', 'Smirnoff', 18),
-        ('Odi', 'Emma', 'Wright', 18),
-        ('Balto', 'Josh', 'King', 25),
-        ('Barry', 'Josh', 'King', 25),
-        ('Snape', 'Hannah', 'Taylor', 40),
-        ('Horry', 'Martha', 'Robinson', 73),
-        ('Giro', 'Alex', 'Martinez', 65),
-        ('Zooma', 'Simon', 'Nevel', 32),
-        ('Lassie', 'Josh', 'King', 25),
-        ('Chase', 'Martha', 'Robinson', 73),
-        ('Ace', 'Martha', 'Williams', 38),
-        ('Rocky', 'Simon', 'Nevel', 32)]
+'''
 
+n = int(input())
 result = {}
+keys = []
+values = []
+for i in range(n):
+    a = input().split(':')
+    keys.append(a[0].lower())
+    values.append(a[1].strip())
 
-for i in pets:
-    result[(i[1], i[2], i[3])] = result.get((i[1], i[2], i[3]), []) + [i[0]]
+result = dict(zip(keys, values))
+m = int(input())
+ans = []
+for i in range(m):
+    d = input().lower()
+    ans.append((result.get(d, 'Не найдено')))
 
-result = {}
-for pet in pets:
-    result.setdefault(pet[1:], []).append(pet[0])
+for i in ans:
+    print(i)
