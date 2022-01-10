@@ -1,26 +1,29 @@
-'''{'Змея': ' язык программирования Python',
-'Баг': ' от англ. bug — жучок, клоп, ошибка в программе',
-'Конфа': ' конференция',
-'Костыль': ' код, который нужен, чтобы исправить несовершенство ранее написанного кода',
-'Бета': ' бета-версия, приложение на стадии публичного тестирования'}
+'''На вход программе подаются два предложения.
+Напишите программу, которая определяет, являются они анаграммами или нет.
+Ваша программа должна игнорировать регистр символов,
+знаки препинания и пробелы.'''
 
-'''
 
-n = int(input())
-result = {}
-keys = []
-values = []
-for i in range(n):
-    a = input().split(':')
-    keys.append(a[0].lower())
-    values.append(a[1].strip())
+#  re.sub(u'[^\w\d\s]+', '', str())   words = re.sub(r'[.,;:-?-!]', '', input())
+a = [i.strip('.,!?:;-') for i in input().lower().strip()]
+b = [i.strip('.,!?:;-') for i in input().lower().strip()]
+# rint(a, b, sep='\n')
+d = {}
+d1 = {}
+for i in a:
+    if i.isalpha():
+        d[i] = d.get(i, 0) + 1
+    else:
+        continue
 
-result = dict(zip(keys, values))
-m = int(input())
-ans = []
-for i in range(m):
-    d = input().lower()
-    ans.append((result.get(d, 'Не найдено')))
+for i in b:
+    if i.isalpha():
+        d1[i] = d1.get(i, 0) + 1
+    else:
+        continue
 
-for i in ans:
-    print(i)
+if d == d1:
+    print("YES")
+else:
+    print('NO')
+# print(d, d1, sep='\n')
