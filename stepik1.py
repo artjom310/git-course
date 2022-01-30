@@ -1,29 +1,7 @@
-'''Sample Input 1:
+s = '''1:men 2:kind 90:number 0:sun 34:book 56:mountain 87:wood 54:car 3:island 88:power 7:box 17:star 101:ice'''
 
-*!*!*?
-3
-а: 3
-н: 2
-с: 1
-'''
-a = input()
-n = int(input())
-d = {}
-for i in a:
-    d[i] = d.get(i, 0) + 1
-# print(d)  # {'*': 3, '!': 2, '?': 1}
+'''result = {int(k): v for k, v in s.split(':')}
+print(result)'''
 
-d1 = {}
-
-keys = []
-values = []
-for i in range(n):
-    i = input().split(': ')
-    keys.append(int(i[1]))
-    values.append(i[0])
-d1 = dict(zip(keys, values))  # {'3': 'а', '2': 'н', '1': 'с'}
-# print(d1)
-s = []
-for i in a:
-    s.append(d1.get(d.get(i)))
-print(''.join(s))
+res = {int(k): v for k, v in [i.split(':') for i in s.split()]}
+print(res)
