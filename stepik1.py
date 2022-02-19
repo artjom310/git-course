@@ -1,27 +1,27 @@
-'''ddgd
-'''
-
 import random
+import string
 
-addres = 'AB23_56VG'
-
-"""AB23_56VG
-"""
-
-# функция для рандомного создания индекса
-
-
-def generate_index():
-    '''гребана пайлинт сцуко'''
-    a = random.randint(65, 90)
-    b = random.randint(65, 90)
-    c = random.randint(65, 90)
-    d = random.randint(65, 90)
-    n = random.randrange(9)
-    n1 = random.randrange(9)
-    n2 = random.randrange(9)
-    n3 = random.randrange(9)
-    return chr(a) + chr(b) + str(n) + str(n1) + '_' + str(n2)  + str(n3) + chr(c) + chr(d)
+'''LETTER = ''.join((set(string.ascii_letters) |
+                 set(string.digits)) - set('lI1oO0'))
+n = int(input())
+length = int(input())  # длина пароля
+for i in range(n):
+    print(''.join(random.sample(LETTER, length)))
+'''
+n = int(input())
+m = int(input())
 
 
-print(generate_index())
+def gen_pass_len():
+    '''ф-ия генерит все символы для сборки пароля'''
+    return ''.join((set(string.ascii_letters) |
+                    set(string.digits)) - set('lI1oO0'))
+
+
+def gen_pass_lst(count, lenght):
+    '''генерит список пароль с заданной длинной символов'''
+    for _ in range(count):
+        print(''.join(random.sample(gen_pass_len(), lenght)))
+
+
+gen_pass_lst(n, m)
