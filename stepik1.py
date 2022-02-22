@@ -1,16 +1,6 @@
 import random
 import string
 
-'''LETTER = ''.join((set(string.ascii_letters) |
-                 set(string.digits)) - set('lI1oO0'))
-n = int(input())
-length = int(input())  # длина пароля
-for i in range(n):
-    print(''.join(random.sample(LETTER, length)))
-'''
-n = int(input())
-m = int(input())
-
 
 def gen_pass_len():
     '''ф-ия генерит все символы для сборки пароля'''
@@ -18,10 +8,23 @@ def gen_pass_len():
                     set(string.digits)) - set('lI1oO0'))
 
 
-def gen_pass_lst(count, lenght):
+def gen_pass_lst():
     '''генерит список пароль с заданной длинной символов'''
-    for _ in range(count):
-        print(''.join(random.sample(gen_pass_len(), lenght)))
+    n = int(input())
+    m = int(input())
+    lst = []
+    c = 0
+    while c < n:
+        while True:
+            password = ''.join(random.sample(gen_pass_len(), m))
+            if (any(c.islower() for c in password) and any(c.isupper() for c in
+                                                           password)
+                    and any(c.isdigit() for c in password)):
+                break
+        c += 1
+        lst.append(password)
+    for i in lst:
+        print(i)
 
 
-gen_pass_lst(n, m)
+gen_pass_lst()
