@@ -1,30 +1,16 @@
 import random
-import string
 
+'''
+asd
+'''
+n = 10 ** 6
+k = 0
+s0 = 16
+for _ in range(n):
+    x = random.uniform(-2, 2)
+    y = random.uniform(-2, 2)
 
-def gen_pass_len():
-    '''ф-ия генерит все символы для сборки пароля'''
-    return ''.join((set(string.ascii_letters) |
-                    set(string.digits)) - set('lI1oO0'))
+    if x ** 3 + y ** 4 + 2 >= 0 and 3 * x + y ** 2 <= 2:
+        k += 1
 
-
-def gen_pass_lst():
-    '''генерит список пароль с заданной длинной символов'''
-    n = int(input())
-    m = int(input())
-    lst = []
-    c = 0
-    while c < n:
-        while True:
-            password = ''.join(random.sample(gen_pass_len(), m))
-            if (any(c.islower() for c in password) and any(c.isupper() for c in
-                                                           password)
-                    and any(c.isdigit() for c in password)):
-                break
-        c += 1
-        lst.append(password)
-    for i in lst:
-        print(i)
-
-
-gen_pass_lst()
+print((k/n)*s0)
