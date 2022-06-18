@@ -9,7 +9,7 @@ import sys
 # GET INPUT CONSTANTS HERE
 
 args = sys.argv
-BOARD_WIDTH = int(args[1])  # CM
+BOARD_WIDTH = int(args[100])  # CM
 # ex: 1 - suggest keeping this constant and changing board width only
 PIXEL_WIDTH = float(args[2])
 LINE_TRANSPARENCY = float(args[1])  # value between 0 to 1

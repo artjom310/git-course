@@ -1,27 +1,18 @@
-'''2
-d = {}
-for _ in range(int(input())):
-    country, *cities = input().split()
-    d.update(dict.fromkeys(cities, country))
-for _ in range(int(input())):    
-    print(d[input()])
-'''
+points = [(-1, 1), (5, 6), (12, 0),
+          (4, 3), (0, 1), (-3, 2),
+          (0, 0), (-1, 3), (2, 0),
+          (3, 0), (-9, 1), (3, 6), 
+          (8, 8)
+          ]
 
 
-n = int(input())
-keys = []
-values = []
-for i in range(n):
-    a = input().split()
-    keys.append(a[0])
-    values.append(a[1:])
-d = {}
-for i in range(len(keys)):
-    a = d.fromkeys(values[i], keys[i])
-    d.update(a)
-m = int(input())
-b = []
-for i in range(m):
-    b.append(input().strip())
-for i in b:
-    print(d.get(i))
+def comparator(item):  # ф-ия считает среднее ареф-е в кортеже
+    c = 0
+    arf = len(item)
+    for i in item:
+        c += i
+    return c / arf
+
+
+print(min(points, key=comparator))
+print(max(points, key=comparator))
