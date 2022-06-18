@@ -5,14 +5,9 @@ points = [(-1, 1), (5, 6), (12, 0),
           (8, 8)
           ]
 
-
+# OA = (x**2 + y**2)**0.5 - расстояние от x0, y0 до точки
 def comparator(item):  # ф-ия считает среднее ареф-е в кортеже
-    c = 0
-    arf = len(item)
-    for i in item:
-        c += i
-    return c / arf
+    return (item[0] ** 2 + item[1]**2)**0.5
 
 
-print(min(points, key=comparator))
-print(max(points, key=comparator))
+print(sorted(points, key=comparator))
