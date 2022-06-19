@@ -1,9 +1,7 @@
-numbers = [-2, 45, 45, -7, -45, 37, -42, 27, -58, -58, -12, -27, -49, -27, -56, 4, -99, -11, 86]
-
-var1 = max(numbers, key=abs)
-var2 = min(map(abs, numbers))
-
-
+'''Напишите программу, которая с помощью функции map()
+округляет все элементы списка numbers до 22 десятичных знаков,
+а затем выводит их, каждый на отдельной строке.
+'''
 def map(function, items):
     result = []
     for item in items:
@@ -11,4 +9,11 @@ def map(function, items):
     return result
 
 
-print(var1 + var2)
+numbers = [3.56773, 5.57668, 4.00914,
+           56.24241, 9.01344, 32.12013,
+           23.22222, 90.09873, 45.45,
+           314.1528, 2.71828, 1.41546
+           ]
+res = map(lambda x: round(x, 2), numbers)
+for i in res:
+    print(i)
