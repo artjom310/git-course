@@ -98,3 +98,4 @@ results.close()
 title = OUTPUT_TITLE+str(BOARD_WIDTH)+'W-'+str(PIXEL_WIDTH)+"P-"+str(
     NUM_NAILS)+'N-'+str(MAX_ITERATIONS)+'-'+str(LINE_TRANSPARENCY)+'.png'
 base.save(title)
+a = | abc | def | ghi | 12345 |
