@@ -1,15 +1,18 @@
-p = 'numbers.txt'
+'''
+qergqerg
+'''
+P = 'numbers.txt'
 
-max_len = 0
-max_str = []
+#p = 'grades.txt'
 
-with open(p, encoding='utf-8') as file:
-    for line in file.readlines():
-        if len(line) > max_len:
-            max_len = len(line)
-            max_str = [line]
-        elif len(line) == max_len:
-            max_str.append(line)
-            
-for elem in max_str:
-    print(elem, end = '')
+with open(P, 'r', encoding='utf-8') as file:
+    d = {}
+    for i in file:
+        i = i.split()
+        d[i[0]] = i[1::]
+    C = 0
+    for k, v in d.items():
+        v = list(map(int, v))
+        if v[0] >= 65 and v[1] >= 65 and v[2] >= 65:
+            C += 1
+    print(C)
